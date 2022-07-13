@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+            <!-- <bean id = ""> 안에 입력되는 값은 실제 위치를 나타내는 것이 아님 -->
+    <bean id="/index" class="com.music.controller.IndexController" />  
+
+        <!-- collaborators and configuration for this bean go here -->
+<!-- 절대 경로 값을 미리 지정해주어서 앞에 /WEB-INF/view/ 와 뒤에 .jsp 값을 생략할 수 있게 해준다. -->
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/view/"></property>
+<property name="suffix" value=".jsp"></property>
+</bean>
+<mvc:resources location="/static/" mapping="/**"></mvc:resources> 
+
+</beans>
